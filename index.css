@@ -33,7 +33,7 @@
     }
   }
   
-  section {
+  #loader {
     position: relative;
     animation: jump 1.5s ease-in-out infinite;
     transform-origin: 50% 50%;
@@ -88,3 +88,20 @@
     transform: translateX(-50%);
     z-index: -1;
   } 
+
+  .debug{
+      border: 1px solid red;
+  }
+
+  .banner-container{
+    background: url(/images/mainbg.jpg) no-repeat center;
+    /* background: url(https://s21.postimg.org/iq2mtjaiv/bg_boardwalk.jpg) no-repeat center; */
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+
+  .logo-item{
+    font-family: 'Caveat Brush', cursive !important;
+  }
