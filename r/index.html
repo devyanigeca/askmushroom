@@ -72,6 +72,9 @@
 	</script>
 	<!-- //Meta tag Keywords -->
 
+
+
+
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<!-- Bootstrap-Core-CSS -->
@@ -85,6 +88,10 @@
 	<link href="//fonts.googleapis.com/css?family=Poiret+One&amp;subset=cyrillic,latin-ext" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Mada:200,300,400,500,600,700,900&amp;subset=arabic" rel="stylesheet">
 	<!-- //Web-Fonts -->
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -155,7 +162,7 @@
 						<h6 class="subheading-mob-temsls text-uppercase tc ext-dark mb-4">We have <span class="font-weight-bold">handpicked</span>
 							many delicious recipes <span class="font-weight-bold">for all your tastes</span> </h6>
 						<p>Sit tight and enjoy.</p>
-						<a href="about.html" class="btn button-style mt-sm-5 mt-4">Explore recipes</a>
+						<a href="#" id="explore_recipes" class="btn button-style mt-sm-5 mt-4">Explore recipes</a>
 					</div>
 				</div>
 				<div class="col-lg-6 mob-temslsits_works-grid1 mt-lg-0 mt-sm-5 mt-4">
@@ -235,7 +242,7 @@
 	<!-- team -->
 
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="explore_recipes_target"  class="testimonials py-5" >
 		<div class="container py-xl-5 py-lg-3">
 			<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Gravy
 				<span>Everything is excellent with some gravy</span>
@@ -933,6 +940,24 @@
 		</div>
 	</footer>
 	<!-- //footer -->
+
+
+	<script>
+	
+	$(document).ready(function(){
+
+		
+		$("#explore_recipes").click(function(e) {
+                        e.preventDefault();
+                    // $([document.documentElement, document.body]).animate({
+                    //     scrollTop: $("#see_more_target").offset().top
+                    // }, 2000);
+                    $("#explore_recipes_target").get(0).scrollIntoView();
+		});					
+
+	});
+
+	</script>
 
 </body>
 
