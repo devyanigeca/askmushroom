@@ -1069,7 +1069,7 @@ h6.subheading-mob-temsls {
     text-align: center;
 }
 
-.team-grids:hover div.team-info {
+.team-grids div.team-info {
     bottom: 0;
 }
 
