@@ -156,7 +156,7 @@
                             <div class="style-banner-inner">
                                 <h3 class="font-weight-bold text-uppercase"> Healthy <span class="font-weight-normal">and</span> Farm Fresh </h3>
                                 <p class="mt-3">Grown Naturally</p>
-                                <a href="#" class="btn button-style mt-sm-5 mt-4">Read More</a>
+                                <a id="see_more" class="btn button-style mt-sm-5 mt-4">See More</a>
                             </div>
                         </div>
                         <div class="col-lg-6 img-banner-mob-tems text-center ">
@@ -201,16 +201,16 @@
             <div class="container py-xl-5 py-lg-3">
                 <div class="welcome-left text-center py-md-5 py-sm-3">
                     <h3>Welcome to our Awesome Organic Mushroom Facility</h3>
-                    <a href="about.html" class="btn button-style button-style-2 mt-sm-5 mt-4">Read More</a>
+                    <!-- <a href="about.html" class="btn button-style button-style-2 mt-sm-5 mt-4">Read More</a> -->
                 </div>
             </div>
         </div>
         <!-- //about -->
     
         <!-- best food  -->
-        <section class="py-5 team-mob-temsls" id="best">
+        <section id="see_more_target" class="py-5 team-mob-temsls" id="best">
             <div class="container py-xl-5 py-lg-3">
-                <h3 class="title-mob-tems pt-sm-5 mb-5 text-wh font-weight-bold">Healthy Organic Food
+                <h3 class="title-mob-tems pt-sm-5 mb-5 text-wh font-weight-bold">Healthy and Organic
                     <span>is available at our Website</span></h3>
                 <div class="d-flex team-mob-temsls-row pt-xl-5 pt-md-3">
                     <div class="col-lg-4 col-sm-6">
@@ -429,6 +429,14 @@
                 setTimeout( function(){ 
                         $('#loaderdiv').fadeOut(200);
                     }  , 2000 );
+
+                    $("#see_more").click(function(e) {
+                        e.preventDefault();
+                    // $([document.documentElement, document.body]).animate({
+                    //     scrollTop: $("#see_more_target").offset().top
+                    // }, 2000);
+                    $("#see_more_target").get(0).scrollIntoView();
+                });
             });
         </script>
 
