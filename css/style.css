@@ -756,7 +756,7 @@ a.reqe-button {
 
 /* middle */
 .what-mob-temsls {
-    background: url(../images/bg1.jpg) no-repeat center;
+    background: url(../images/mush_4.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -766,6 +766,7 @@ a.reqe-button {
     clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
     padding: 6em 0 7em;
     margin: 4em 0 10em;
+    
 }
 
 /* //middle */
