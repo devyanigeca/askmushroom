@@ -87,6 +87,12 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<!-- end jquery -->
 
+
+		<!-- toastr -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+		<!-- end toastr -->
+
 </head>
 <body>
     <!-- main -->
@@ -141,12 +147,12 @@
 			<div class="row">
 				<!-- contact form -->
 				<div class="col-lg-6 contact-us1-bottom mob-temslayouts-mob-temsls">
-					<form action="#" method="post">
+					<form id="buyform" action="#" method="post">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Name" name="name" required="">
+							<input id="buyname" type="text" class="form-control" placeholder="Name" name="name" required="">
 						</div>
 						<div class="form-group">
-							<input type="tel" class="form-control" placeholder="Phone Number" name="phone" required="">
+							<input id="buyphone" type="tel" class="form-control" placeholder="Phone Number" name="phone" required="">
 						</div>
 						<div class="form-group">
 							<input id="quantity" type="number" class="form-control" placeholder="How many?" name="quantity" required="">
@@ -283,6 +289,41 @@
 			 else{
 				$('#isopen').hide();
 			 }
+
+			   
+			 $('#buyform').submit(function(e) {
+                        e.preventDefault();
+                            // alert('hello');
+
+                            var name = $('#buyname').val();
+                            var phone = $('#buyphone').val();
+                            var quantity = $('#quantity').val();
+
+                            var context = {
+                                'name': name,
+                                'phone': phone,
+                                'quantity': quantity
+                            }
+                           
+
+                            var saveData = $.ajax({
+                                type: 'POST',
+                                url: "https://stark-reaches-63691.herokuapp.com/api/add_order/",
+                                data: context,
+                                dataType: "text",
+                                success: function(resultData) { 
+									resultData = JSON.parse(resultData);
+									console.log(resultData);
+									
+									if(resultData["success"]){
+										toastr.success( 'However, it is recommended you put on offline order by calling us!', 'Your order have been placed!');
+									}
+									else{
+										toastr.error( resultData["message"], 'Something went wrong :(');
+									}
+								 }
+                            });
+                      });
 
 	})
 
