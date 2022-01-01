@@ -89,6 +89,8 @@
 	<link href="//fonts.googleapis.com/css?family=Mada:200,300,400,500,600,700,900&amp;subset=arabic" rel="stylesheet">
 	<!-- //Web-Fonts -->
 
+	<link rel="stylesheet" href="index.css">
+
 	<!-- jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -243,7 +245,7 @@
 
 	<!-- testimonials -->
 	<div id="explore_recipes_target"  class="testimonials py-5" >
-		<div class="container py-xl-5 py-lg-3">
+		<div id="gravy" class="container py-xl-5 py-lg-3">
 			<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Gravy
 				<span>Everything is excellent with some gravy</span>
 			</h3>
@@ -324,7 +326,7 @@
 	<!-- //testimonials -->
 
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="soup" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Soups
 					<span>Nothing to start the meal with mushroom soup</span>
@@ -434,7 +436,7 @@
 
 		
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="sandwitch" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Sandwitches
 					<span>They are not witches but they can be eaten by all the bitches</span>
@@ -507,7 +509,7 @@
 
 		
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="pasta" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Pasta
 					<span> Bonjour </span>
@@ -633,7 +635,7 @@
 
 		
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="frigate" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Frigates
 					<span> Ahoyy </span>
@@ -724,7 +726,7 @@
 
 		
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="crostini" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Crostini
 					<span>Khaa sobat bhau ani vahini</span>
@@ -799,7 +801,7 @@
 
 		
 	<!-- testimonials -->
-	<div class="testimonials py-5" >
+	<div id="bruschetta" class="testimonials py-5" >
 			<div class="container py-xl-5 py-lg-3">
 				<h3 class="title-mob-tems mb-5 text-wh font-weight-bold">Bruschetta
 					<span> Khanyapurvi karne brush betta </span>
@@ -941,6 +943,40 @@
 	</footer>
 	<!-- //footer -->
 
+	
+	<div class="fab">
+		<div class="trigger"><span>&nbsp;<i class="fa fa-forward"></i></span></div>
+		<div class="actions">
+					  
+		  <div class="action" data-location="#bruschetta">Br
+				<div class="tooltip">Bruschetta</div>
+		</div>
+
+		<div class="action" data-location="#crostini">Cr
+			<div class="tooltip">Crostini</div>
+		  </div>
+
+		<div class="action" data-location="#frigate">Fr
+			<div class="tooltip">Frigates</div>
+		  </div>
+		
+		<div class="action" data-location="#pasta">Ps
+			<div class="tooltip">Pasta</div>
+		</div>
+		  <div class="action" data-location="#sandwitch">Sw
+			<div class="tooltip">Sandwitches</div>
+		 </div>
+		 <div class="action" data-location="#soup">Sp
+			<div class="tooltip">Soups</div>
+		  </div>
+		 <div class="action" data-location="#gravy">Gr
+			<div class="tooltip">Gravy</div>
+		</div>
+
+
+		</div>
+	  </div>
+
 
 	<script>
 	
@@ -958,6 +994,23 @@
 	});
 
 	</script>
+
+	
+<script>
+	$('.fab').click(function() {
+		$(this).toggleClass('open');
+	});
+	$('.action').click(function(e){
+		$('html, body').animate(
+				{
+				scrollTop: $($(this).data('location')).offset().top,
+				},
+				500,
+				'swing'
+	)
+	})
+	
+</script>
 
 </body>
 
