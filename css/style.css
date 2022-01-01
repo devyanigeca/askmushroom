@@ -1215,6 +1215,8 @@ h6.subheading-mob-temsls {
 /* contact form */
 .contact-us1-bottom input[type="text"],
 .contact-us1-bottom input[type="email"],
+.contact-us1-bottom input[type="number"],
+.contact-us1-bottom input[type="tel"],
 .contact-us1-bottom textarea {
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 0px;
