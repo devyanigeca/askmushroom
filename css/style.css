@@ -92,6 +92,10 @@ a:hover {
     color: #f8f9fa;
 }
 
+.text-red{
+    color: #FD5C63;
+}
+
 .let {
     letter-spacing: 1px;
 }
