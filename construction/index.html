@@ -58,7 +58,14 @@
         </script>
 
         <!-- End Google Analytics -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="index.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -66,11 +73,22 @@
 </head>
 <body>
 
-        <main>
                 <section   class="advice">
                   <h1  id="gohome" class="advice__title">Page under construction or maintenance </h1>
                   <p  class="advice__description"><span><</span> building <span>/></span> not finished yet</p>
-                  <h5 id="countdown" style="z-index: 1000" >Going home in 5 seconds</h5>
+                  
+                  <div class="continer">
+                    <div class="row">
+                      <!-- <div class="col-md-2"></div> -->
+                      <div class="col-md-3"><a href="/" class="btn btn-primary" >Go home</a> </div>
+                      <div class="col-md-3"><a id="referer_link" class="btn btn-primary" > Go to Previous page </a></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-4"></div>
+                  <!-- <br> -->
+                  
+                    </div>
+                  </div>
+
                 </section>
                 <section class="city-stuff">
                   <ul class="skyscrappers__list">
@@ -144,29 +162,37 @@
                     <li class="crane__item crane-arm"></li>
                   </ul>
                 </section>
-              </main>
-    
+              
+   
 
               <script>
 
-            var timeleft = 5;
-            var downloadTimer = setInterval(function(){
-            if(timeleft <= 0){
-                clearInterval(downloadTimer);
-                // document.getElementById("countdown").innerHTML = "Finished";
-                window.location.href = "/"
-            } else {
-                document.getElementById("countdown").innerHTML = "Going to homepage in: " + timeleft + " seconds";
-            }
-            timeleft -= 1;
-            }, 1000);
-                  $(document).ready(function(){
-                        $('#gohome').click(function(e){
-                            alert('hello');
-                        })
-                  });
-              
+                // var timeleft = 5;
+                // var downloadTimer = setInterval(function(){
+                // if(timeleft <= 0){
+                //     clearInterval(downloadTimer);
+                //     // document.getElementById("countdown").innerHTML = "Finished";
+                //     window.location.href = "/"
+                // } else {
+                //     document.getElementById("countdown").innerHTML = "Going to homepage in: " + timeleft + " seconds";
+                // }
+                // timeleft -= 1;
+                // }, 1000);
+                //       $(document).ready(function(){
+                //             $('#gohome').click(function(e){
+                //                 alert('hello');
+                //             })
+                //       });
+
+                $(document).ready(function() {
+                  var referrer =  document.referrer;
+                  $("#referer_link").prop("href", referrer)
+
+                });
+                              
               </script>
+
+          
 
 </body>
 </html>
