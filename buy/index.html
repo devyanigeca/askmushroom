@@ -298,7 +298,7 @@
 			 $('#buyform').submit(function(e) {
                         e.preventDefault();
                             // alert('hello');
-
+						
                             var name = $('#buyname').val();
                             var phone = $('#buyphone').val();
                             var quantity = $('#quantity').val();
@@ -327,6 +327,7 @@
 									}
 								 }
                             });
+							$('#buyform').trigger("reset");
                       });
 
 	})
