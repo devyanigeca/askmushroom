@@ -155,7 +155,7 @@
 							<input id="buyphone" type="tel" class="form-control" placeholder="Phone Number" name="phone" required="">
 						</div>
 						<div class="form-group">
-							<input id="quantity" type="number" class="form-control" placeholder="How many?" name="quantity" required="">
+							<input id="quantity" type="number" min="0" max="10000" step="200"  class="form-control" placeholder="How many grams?" name="quantity" required="">
 						</div>
 						<p > Total: ₹<span id="total">0</span> </p>
 						<button type="submit" class="btn">Submit</button>
@@ -270,7 +270,11 @@
 	$(document).ready(function(){
 		$('input[name=quantity]').change(function(e) {
 				// alert( $('#quantity').val())
-				quan = $('#quantity').val();
+				quan1 = $('#quantity').val() ;
+				quan = Math.floor(quan1/200)*200;
+
+				$('#quantity').val( quan ) ;
+				quan = quan/200;
 				$("#total").text( quan * 100 );
 		 });
 
