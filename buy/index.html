@@ -320,10 +320,10 @@
 									console.log(resultData);
 									
 									if(resultData["success"]){
-										toastr.success( 'However, it is recommended you put on offline order by calling us!', 'Your order have been placed!');
+										toastr.success( 'However, it is recommended you put on offline order by calling us!', 'Your order have been placed!', { timeOut: 6000 });
 									}
 									else{
-										toastr.error( resultData["message"], 'Something went wrong :(');
+										toastr.error( resultData["message"], 'Something went wrong :(', { timeOut: 9500 });
 									}
 								 }
                             });
