@@ -995,8 +995,25 @@
 
 
 	<script>
-	
+
+				var getUrlParameter = function getUrlParameter(sParam) {
+					var sPageURL = window.location.search.substring(1),
+						sURLVariables = sPageURL.split('&'),
+						sParameterName,
+						i;
+
+					for (i = 0; i < sURLVariables.length; i++) {
+						sParameterName = sURLVariables[i].split('=');
+
+						if (sParameterName[0] === sParam) {
+							return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+						}
+					}
+					return false;
+				};
+					
 	$(document).ready(function(){
+
 
 		
 		$("#explore_recipes").click(function(e) {
@@ -1005,7 +1022,23 @@
                     //     scrollTop: $("#see_more_target").offset().top
                     // }, 2000);
                     $("#explore_recipes_target").get(0).scrollIntoView();
-		});					
+		});			
+
+		param = getUrlParameter('s');
+		if( param == 'r' ){
+			context = {"key": "devya"}
+			var saveData = $.ajax({
+                                type: 'POST',
+                                url: "https://stark-reaches-63691.herokuapp.com/api/recipe_counter/",
+                                data: context,
+                                dataType: "text",
+                                success: function(resultData) { 
+                                    resultData = JSON.parse(resultData);
+									console.log( resultData);
+									                                   
+                                 }
+				});
+		}
 
 	});
 
