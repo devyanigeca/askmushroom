@@ -106,3 +106,151 @@
   .logo-item{
     font-family: 'Caveat Brush', cursive !important;
   }
+
+  .properties_container{
+    margin-bottom: 0%;
+  }
+
+  
+/* responsive */
+@media(max-width: 1440px) {
+  .properties_container{
+    margin-bottom: 0%;
+  }
+
+}
+
+@media(max-width: 1366px) {
+  .properties_container{
+    margin-bottom: 1%;
+  }
+
+}
+
+@media(max-width: 1280px) {
+  .properties_container{
+    margin-bottom: 1%;
+  }
+
+}
+
+@media(max-width: 1080px) {
+  .properties_container{
+    margin-bottom: 1%;
+  }
+
+}
+
+@media(max-width: 1050px) {
+  .properties_container{
+    margin-bottom: 2%;
+  }
+
+
+}
+
+@media(max-width: 1024px) {
+
+  .properties_container{
+    margin-bottom: 2%;
+  }
+
+}
+
+@media(max-width: 991px) {
+  .properties_container{
+    margin-bottom: 5%;
+  }
+
+
+}
+
+@media(max-width: 900px) {
+  .properties_container{
+    margin-bottom: 5%;
+  }
+
+}
+
+@media(max-width: 768px) {
+  .properties_container{
+    margin-bottom: 5%;
+  }
+
+}
+
+@media(max-width: 736px) {
+  .properties_container{
+    margin-bottom: 5%;
+  }
+
+}
+
+@media(max-width: 667px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 600px) {
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 568px) {
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 480px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 440px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 414px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 384px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 375px) {
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
+
+@media(max-width: 320px) {
+
+  .properties_container{
+    margin-bottom: 10%;
+  }
+
+}
