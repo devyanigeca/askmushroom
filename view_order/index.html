@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Buy Mushrooms | Ask Mushrooms | Best Mushrooms</title>
+    <title>View Order | Ask Mushrooms | Best Mushrooms</title>
 
     
        <!-- Favicon -->
@@ -187,10 +187,9 @@
 								<li><a href="/">Home</a></li>
 								<li class="mx-lg-4 mx-md-3 my-md-0 my-2"><a href="/r/">Recipes</a></li>
 								<li><a href="/construction/">Gallery</a></li>
-							
-								<li class="mx-lg-4 mx-md-3 my-md-0 my-2 active" ><a href="#">Buy Now</a></li>
-								<li><a href="/view_order/">View Order</a></li>
-
+														
+								<li class="mx-lg-4 mx-md-3 my-md-0 my-2" ><a href="/buy/">Buy Now</a></li>
+								<li class="active"><a href="#">View Order</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -208,7 +207,7 @@
 				<li class="breadcrumb-item">
 					<a href="/">Home</a>
 				</li>
-				<li class="breadcrumb-item active" aria-current="page">Buy</li>
+				<li class="breadcrumb-item active" aria-current="page">View Order</li>
 			</ol>
 		</div>
 	</div>
@@ -217,25 +216,39 @@
 	<!-- contact  -->
 	<section class="contact py-5">
 		<div class="container py-xl-5 py-lg-3">
-			<h3 class="title-mob-tems mb-5 font-weight-bold">Buy Now <span>Fresh Oyster Mushrooms: </span><span> 200gm for ₹100!</span></h3>
+			<h3 class="title-mob-tems mb-5 font-weight-bold">View Order <span>Fresh Oyster Mushrooms </span><span> Please enter your phone number</span></h3>
 			<div class="row">
 				<!-- contact form -->
 				<div class="col-lg-6 contact-us1-bottom mob-temslayouts-mob-temsls">
 					<form id="buyform" action="#" method="post">
-						<div class="form-group">
-							<input id="buyname" type="text" class="form-control" placeholder="Name" name="name" required="">
-						</div>
+						
 						<div class="form-group">
 							<input id="buyphone" type="tel" class="form-control" placeholder="Phone Number" name="phone" required="">
 						</div>
-						<div class="form-group">
-							<input id="quantity" type="number" min="0" max="10000" step="200"  class="form-control" placeholder="How many grams?" name="quantity" required="">
-						</div>
-						<p > Total: ₹<span id="total">0</span> </p>
+						
 						<button type="submit" class="btn">Submit</button>
 					</form>
 				</div>
 				<!-- //contact form -->
+				<!-- contact address -->
+				<div class="col-lg-6 home-radio-clock mt-lg-0 mt-5">
+					<h3 id="sideheader" class="tittle text-dark mb-5 font-weight-bold">Please enter mobile number to see orders:</h3>
+					<div class="row">
+						<div class="col-4">
+							Your Orders:
+						</div>
+						<div class="col-8">
+							<div class="home-radio-clock-right">
+								<ul id="orderappendlist" class="list-unstyled">
+									
+									
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //contact address -->
 				<!-- contact address -->
 				<div class="col-lg-6 home-radio-clock mt-lg-0 mt-5">
 					<h3 class="tittle text-dark mb-5 font-weight-bold">Get In Touch</h3>
@@ -297,9 +310,12 @@
 						<li class="mr-4">
 							<a class="" href="/construction/">Gallery</a>
 						</li>
-						<li>
-							<a class="active" href="#">Buy now</a>
+						<li class="mr-4">
+							<a class="" href="/buy/">Buy now</a>
 						</li>
+						<li >
+								<a class="active" href="#">View Order</a>
+							</li>
 					</ul>
 				</div>
 				<!-- //button -->
@@ -338,7 +354,6 @@
 		</div>
 	</footer>
 	<!-- //footer -->
-
 	<script>
 	
 	$(document).ready(function(){
@@ -373,28 +388,51 @@
                         e.preventDefault();
                             // alert('hello');
 						
-                            var name = $('#buyname').val();
                             var phone = $('#buyphone').val();
-                            var quantity = $('#quantity').val();
+
 
                             var context = {
-                                'name': name,
                                 'phone': phone,
-                                'quantity': quantity
                             }
                            
 
                             var saveData = $.ajax({
                                 type: 'POST',
-                                url: "https://stark-reaches-63691.herokuapp.com/api/add_order/",
+                                url: "https://stark-reaches-63691.herokuapp.com/api/view_orders/",
                                 data: context,
                                 dataType: "text",
                                 success: function(resultData) { 
 									resultData = JSON.parse(resultData);
 									console.log(resultData);
 									
+									$('#orderappendlist').html('');
+
 									if(resultData["success"]){
-										toastr.success( 'However, it is recommended you put on offline order by calling us!', 'Your order have been placed!', { timeOut: 6000 });
+										if(resultData['message'] == "ok"){
+											resultData["data"].forEach(element => {
+												// console.log(element);
+												$('#sideheader').html("Your order details:");
+												// <li>Order Id : 143</li> orderappendlist
+												$('#orderappendlist').append("<li>Order Id: " + element["auto_increment_id"] + " </li>");
+												$('#orderappendlist').append("<li>Name: " + element["name"] + " </li>");
+												$('#orderappendlist').append("<li>Quantity: " + element["quantity"] + " gms </li>");
+												$('#orderappendlist').append("<li>Phone: " + element["phone"] + " </li>");
+
+												if( element["isOpen"] ){
+													$('#orderappendlist').append('<li>Status: <i class="fa fa-circle" style="color: green" ></i>  Recieved </li>');
+												}
+												else{
+													$('#orderappendlist').append('<li>Status:  <i class="fa fa-circle" style="color: blue" ></i>  Closed </li>');
+												}
+												$('#orderappendlist').append("<br> <hr>");
+											});
+										}	
+										else{
+											$('#orderappendlist').append(" <li> The mobile number does not exists with us :(. Please check mobile number or you can place an order with below link </li>" );
+											$('#orderappendlist').append('<li> <a href="/buy/">Buy Now</a> </li>' );
+
+
+										}
 									}
 									else{
 										toastr.error( resultData["message"], 'Something went wrong :(', { timeOut: 9500 });
