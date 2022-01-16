@@ -417,7 +417,10 @@
 												$('#orderappendlist').append("<li>Name: " + element["name"] + " </li>");
 												$('#orderappendlist').append("<li>Quantity: " + element["quantity"] + " gms </li>");
 												$('#orderappendlist').append("<li>Phone: " + element["phone"] + " </li>");
-
+												created = new Date(element["created_at"]);
+												var options = {  year: 'numeric', month: 'long', day: 'numeric' };
+												$('#orderappendlist').append("<li>Date: " + created.toLocaleString("en-IN") + " </li>");
+												// $('#orderappendlist').append("<li>Date2: " + element["created_at"] + " </li>");
 												if( element["isOpen"] ){
 													$('#orderappendlist').append('<li>Status: <i class="fa fa-circle" style="color: green" ></i>  Recieved </li>');
 												}
